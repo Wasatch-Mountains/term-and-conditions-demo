@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Transport to Booking - Demo</title>
+    <style>
+        /* Base Styles & Typography */
+        :root {
+            --bui-primary-color: #003580;
+            --bui-action-color: #0071c2;
+            --bui-action-hover: #005f9e;
+            --bui-success-color: #008009;
+            --bui-bg-color: #f5f5f5;
+            --bui-card-bg: #ffffff;
+            --bui-text-main: #1a1a1a;
+            --bui-text-muted: #6b6b6b;
+            --bui-border-color: #e7e7e7;
+            --bui-info-bg: #fef4e5;
+            --bui-info-border: #feba02;
+            --bui-discount-red: #d40000;
+        }
+
+        body {
+            font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bui-bg-color);
+            color: var(--bui-text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* Top Bar: Google Sign-in Simulation */
+        .auth-bar {
+            background-color: #ffffff;
+            padding: 8px 24px;
+            font-size: 13px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-bottom: 1px solid var(--bui-border-color);
+            color: var(--bui-text-muted);
+        }
+
+        .auth-bar .google-logo {
+            height: 16px;
+            width: 16px;
+            margin-right: 8px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bui-primary-color);
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-brand {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .demo-badge {
+            background-color: var(--bui-discount-red);
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 800px;
+            margin: 32px auto;
+            padding: 0 16px;
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--bui-card-bg);
+            border: 1px solid var(--bui-border-color);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            border-bottom: 1px solid var(--bui-border-color);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: var(--bui-text-main);
+        }
+
+        .booking-context {
+            color: var(--bui-text-muted);
+            font-size: 14px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .context-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Offer Details */
+        .offer-container {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .vehicle-icon {
+            font-size: 48px;
+            background: #f0f6ff;
+            height: 80px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .offer-details h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+        }
+
+        .offer-perks {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+            font-size: 14px;
+            color: var(--bui-success-color);
+        }
+
+        .offer-perks li {
+            margin-bottom: 4px;
+        }
+
+        .offer-desc {
+            font-size: 14px;
+            color: var(--bui-text-muted);
+            margin-bottom: 16px;
+        }
+
+        /* Pricing Section */
+        .pricing-box {
+            background-color: var(--bui-info-bg);
+            border-left: 4px solid var(--bui-info-border);
+            padding: 16px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .price-text {
+            font-size: 14px;
+        }
+
+        .discount-tag {
+            background-color: var(--bui-success-color);
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            display: inline-block;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--bui-discount-red);
+            font-size: 16px;
+            margin-right: 8px;
+        }
+
+        .new-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--bui-text-main);
+        }
+
+        /* Buttons */
+        .actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            justify-content: flex-end;
+            border-top: 1px solid var(--bui-border-color);
+            padding-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--bui-action-color);
+            color: white;
+            flex-grow: 1;
+            max-width: 300px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--bui-action-hover);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--bui-action-color);
+            border: 1px solid var(--bui-action-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f6ff;
+        }
+
+        .btn-tertiary {
+            background-color: transparent;
+            color: var(--bui-text-muted);
+            font-weight: normal;
+        }
+
+        .btn-tertiary:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .offer-container {
+                flex-direction: column;
+            }
+            .pricing-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .actions {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+            .btn-primary {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-bar">
+        <svg class="google-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Google">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        Signed in securely as Alex (alex@demo.com)
+    </div>
+
+    <header class="header">
+        <div class="header-brand">
+            Booking.com <span class="demo-badge">Demo Only</span>
+        </div>
+        <div>Manage Booking</div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Complete your trip to Rome</h2>
+                <div class="booking-context">
+                    <div class="context-item">📅 May 15 - May 22, 2026</div>
+                    <div class="context-item">👥 6 Adults</div>
+                    <div class="context-item">🧳 6 Large bags</div>
+                    <div class="context-item">🏨 Hotel Grand Plaza</div>
+                </div>
+            </div>
+
+            <div class="offer-container">
+                <div class="vehicle-icon">🚐</div>
+                <div class="offer-details">
+                    <h3>Add an Airport Transfer for your group</h3>
+                    <p class="offer-desc">Since you are traveling with a group of 6, we've found the perfect premium minivan to fit everyone and their luggage comfortably from Leonardo da Vinci–Fiumicino Airport (FCO) directly to your hotel.</p>
+                    <ul class="offer-perks">
+                        <li>✓ Premium Minivan (Mercedes-Benz V-Class or similar)</li>
+                        <li>✓ Fits up to 7 passengers and 7 large bags</li>
+                        <li>✓ Meet & Greet in the arrivals hall included</li>
+                        <li>✓ Free cancellation up to 24 hours before pick-up</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-box">
+                <div class="price-text">
+                    <strong>Exclusive booking discount</strong><br>
+                    Because you booked your hotel with us, you save 30% on this transfer.
+                </div>
+                <div style="text-align: right;">
+                    <div class="discount-tag">Save € 35.00</div><br>
+                    <span class="old-price">€ 120.00</span>
+                    <span class="new-price">€ 85.00</span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-tertiary" onclick="simulateAction('no-thanks')">No thanks</button>
+                <button class="btn btn-secondary" onclick="simulateAction('more-options')">Show me more options</button>
+                <button class="btn btn-primary" onclick="simulateAction('one-click')">One click add • € 85.00</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function simulateAction(actionType) {
+            switch(actionType) {
+                case 'one-click':
+                    alert("DEMO ACTION: ✅ Success! The premium minivan transfer has been added to your Rome booking. Your card ending in 4242 has been charged € 85.00 via Google Pay.");
+                    break;
+                case 'more-options':
+                    alert("DEMO ACTION: 🔄 Redirecting you to the full transportation search page to view standard taxis, private buses, and public transit options...");
+                    break;
+                case 'no-thanks':
+                    alert("DEMO ACTION: ❌ Offer dismissed. Returning you to your main booking dashboard.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
