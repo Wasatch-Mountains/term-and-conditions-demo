@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Booking.com (Demo)</title>
+    <style>
+        /* Base Styles & Typography */
+        :root {
+            --bui-primary-color: #003580;
+            --bui-action-color: #0071c2;
+            --bui-bg-color: #f5f5f5;
+            --bui-card-bg: #ffffff;
+            --bui-text-main: #1a1a1a;
+            --bui-text-muted: #6b6b6b;
+            --bui-border-color: #e7e7e7;
+            --bui-demo-red: #d40000;
+        }
+
+        body {
+            font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bui-bg-color);
+            color: var(--bui-text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bui-primary-color);
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-brand {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .demo-badge {
+            background-color: var(--bui-demo-red);
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Layout Container */
+        .layout {
+            max-width: 1140px;
+            margin: 32px auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 32px;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            align-self: start;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: var(--bui-action-color);
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: rgba(0, 113, 194, 0.1);
+        }
+
+        /* Content Area */
+        .content {
+            background: var(--bui-card-bg);
+            border: 1px solid var(--bui-border-color);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 120px;
+            color: rgba(212, 0, 0, 0.05);
+            font-weight: bold;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        .content h1 {
+            margin-top: 0;
+            font-size: 28px;
+            border-bottom: 2px solid var(--bui-border-color);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            color: var(--bui-primary-color);
+            margin-top: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content p,
+        .content ul {
+            font-size: 15px;
+            color: var(--bui-text-main);
+            position: relative;
+            z-index: 1;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+        }
+
+        .update-notice {
+            font-size: 13px;
+            color: var(--bui-text-muted);
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Tag manager (simulated): Qualtrics website feedback -->
+    <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+
+    <script type='text/javascript'>
+        (function () {
+            var g = function (g) {
+                this.go = function () {
+                    var a = document.createElement("script");
+                    a.type = "text/javascript";
+                    a.src = g;
+                    document.body && document.body.appendChild(a)
+                };
+                this.start = function () {
+                    var t = this;
+                    "complete" !== document.readyState ? window.addEventListener ? window.addEventListener("load", function () {
+                        t.go()
+                    }, !1) : window.attachEvent && window.attachEvent("onload", function () {
+                        t.go()
+                    }) : t.go()
+                };
+            };
+            try {
+                (new g("https://zn25nksfoyrqgkkk1-qdemo.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_25NKsfOyrQGKkK1")).start()
+            } catch (i) {
+            }
+        })();
+    </script>
+    <div id='ZN_25NKsfOyrQGKkK1'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+
+    <!--END WEBSITE FEEDBACK SNIPPET-->
+
+    <header class="header">
+        <div class="header-brand">
+            Booking.com <span class="demo-badge">Demo Version</span>
+        </div>
+        <div>Legal Hub</div>
+    </header>
+
+    <div class="layout">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#summary" class="active">Summary of these Terms</a></li>
+                <li><a href="#all-experiences">A. All Travel Experiences</a></li>
+                <li><a href="#accommodations">B. Accommodations</a></li>
+                <li><a href="#attractions">C. Attractions</a></li>
+                <li><a href="#car-rentals">D. Car rentals</a></li>
+                <li><a href="#flights">E. Flights</a></li>
+                <li><a href="#transport">F. Private and Public Transport</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div class="watermark">DEMO ONLY</div>
+
+            <h1>Customer terms of service</h1>
+            <p class="update-notice">Updated 15 September 2025 [cite: 4]</p>
+
+            <h2 id="summary">Summary of these Terms</h2>
+            <p>Along with the Terms on this page, two other documents form part of our contract with you[cite: 6]:</p>
+            <ul>
+                <li>Our How we Work page helps you use our Platform and understand our reviews, rankings,
+                    recommendations, how we make money, and more[cite: 7].</li>
+                <li>Our Content Standards and Guidelines help us keep everything on our Platform relevant to and
+                    appropriate for our global audience without limiting freedom of expression[cite: 8].</li>
+            </ul>
+
+            <h2 id="all-experiences">A. All Travel Experiences</h2>
+            <p>When you complete your booking, you accept these Terms and any other terms provided during the booking
+                process[cite: 57]. We get information from Service Providers, and we can't guarantee that everything is
+                accurate - but when providing our Platform, we take reasonable care and act with professional
+                diligence[cite: 84]. Unless we've failed to do so or have been negligent, we can't be held responsible
+                for any errors, interruptions, or missing bits of information[cite: 85].</p>
+
+            <h2 id="accommodations">B. Accommodations</h2>
+            <p>When you make (or request) a booking, it's directly with the Service Provider we're not a 'contractual
+                party'[cite: 451]. Booking.com B.V. owns and operates the Platform[cite: 452]. Our Platform only shows
+                Accommodations that have a commercial relationship with us (in some cases, through a partner company -
+                please refer to 'Partner offer' under B7.2) or with our Connectivity Providers, and it doesn't
+                necessarily show all their products or services[cite: 453, 454, 455].</p>
+
+            <h2 id="attractions">C. Attractions</h2>
+            <p>We do not (re)sell, offer or provide any Attractions on our own behalf - when you book an Attraction, you
+                enter into a contract directly with (a) the Service Provider or (b) a Third-Party Aggregator (if they're
+                reselling the Attraction), as disclosed during the booking process[cite: 556]. We act solely as the
+                Platform and are not involved in the terms of the Service Provider / Third-Party Aggregator[cite: 557].
+            </p>
+
+            <h2 id="car-rentals">D. Car rentals</h2>
+            <p>The car rental pages on Booking.com and Rentalcars.com are operated by Booking.com Transport
+                Limited[cite: 591]. When you book a rental, your booking is either (a) with us or (b) directly with the
+                Service Provider[cite: 598]. Either way:</p>
+            <ul>
+                <li>our Terms govern the use of the Platform up until you pick up the rental[cite: 600];</li>
+                <li>the Rental Agreement governs the rental itself[cite: 601];</li>
+            </ul>
+
+            <h2 id="flights">E. Flights</h2>
+            <p>Most Flights on our Platform are provided via a Third-Party Aggregator, which acts as an intermediary to
+                the airline(s)[cite: 725]. When you make a booking, it's directly with the airline[cite: 726]. We're not
+                a 'contractual party' to your Booking[cite: 726]. When booking, you enter into (i) an Intermediation
+                Contract with the Third-Party Aggregator (for the ticket) and (ii) a Contract of Carriage with the
+                airline (for the Flight itself)[cite: 727].</p>
+
+            <h2 id="transport">F. Private and Public Transport</h2>
+            <p>When you pre-book Private or Public Transport, your booking will be directly with the Service Provider or
+                via a Third-Party Aggregator who will allocate your booking to a Service Provider[cite: 855]. In all
+                cases, our Terms will govern the booking process[cite: 856].</p>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.content h2');
+            const navLinks = document.querySelectorAll('.sidebar a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
